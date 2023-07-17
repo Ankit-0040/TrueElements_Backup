@@ -1,0 +1,242 @@
+<?php echo $new_header; ?>
+    <link href="catalog/view/theme/default/stylesheet/quickorder.css" rel="stylesheet" />
+    <link href="catalog/view/theme/default/stylesheet/account_distributor_inventory_report.css" rel="stylesheet" />
+    <style>
+ #search_bar_AND_filter {
+  justify-content: center;
+  align-items: center;
+}
+
+    section {
+        overflow-x:hidden!important;
+    }
+    
+    #notificationpopup{
+      z-index: 11000;
+    }
+    
+    #notificationpopup .modal-title {
+      font-weight: 700;
+      text-align: center;
+      font-size: 27px;
+    }
+    
+    /*@media screen and (min-width:1000px){*/
+    /*    .checkbox {*/
+            /*width: 23% !important;*/
+            /*margin:30px 6px 30px !important;*/
+    /*  color: red*/
+    /*        min-height: 346px !important;*/
+    /*    }*/
+    /*}*/
+     
+    #address {
+        display : none;
+    }
+    
+    
+    
+   
+</style>
+    
+    <div  class="row">
+          <div class="col-xxl-12 col-xl-12 col-12 mb-3">
+    <div class="page_header p-1 bg-light text-center"><p class="mb-1 fs-6 fw-bold">Distributor Inventory report</p>
+    </div>
+</div>
+</div>
+
+<div id="row1" class="container">
+  <div  class="row">
+      
+      <div id="content" class="col-md-12 col-sm-12 col-xs-12">
+      <div  class="row">
+      </br> <br>
+    <div id="product" class="col-md-12 col-sm-12 col-xs-12">
+      
+        <center> 
+            
+        <!--<p class="mb-1 fs-6 fw-bold">Distributor inventory report</p>-->
+        <!--    <p style="font-size: 25px;" class="control-label col-md-12 center" id="control-label">Distributor inventory report</p><br />     ankit             search_bar_AND_filter-->
+
+         
+        <div  class="row">
+            
+            <div id="search_bar_AND_filter" class=" row col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 px-2 py-3 px-lg-4 py-lg-4 bg-white shadow rounded-4">
+            <div  class="col-xxl-8 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 my-1  my-lg-0">
+                <select Id="myDropdown" style="height: 37px;" placeholder="Please">
+                    <option value="" selected style="color:#000000;font-size:15px;">Select your option</option>
+                    <?php if ($distributors) { ?>
+                        <?php foreach ($distributors as $distributor) { ?>
+                            <?php if($distributor['name'] != '') { ?>
+                                 <option style="color:#000000;font-size:15px;"><?php echo $distributor['name']; ?></option>
+                            <?php } ?>    
+                        <?php } ?>
+                    <?php } ?>  
+                </select>
+            </div>
+    
+            <div  class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-1 my-lg-0 pl-3"> 
+                <input id="myInput" type="text" style="font-size: 17px;" placeholder="Search here...">
+            </div> 
+            <!--<div class="hidden-md hidden-lg"><br></div>-->
+             
+    
+    </center></div><br />
+    <div class="hidden-md hidden-lg"><br></div>
+    
+    
+    <!-- Product_section-->
+    
+<div class="row">
+      
+              <div class="clearfix"  id="myDIV">
+                  <div  class="row">
+                      
+                      <div class="">
+                                <div class="product_section row  rounded-4 shadow">
+                                    <?php if ($distributors) { ?>
+                  <?php foreach ($distributors as $distributor) { ?>
+                    <?php if($distributor['name'] != '') { ?>
+                    <div id=''  class=" bg-warning row checkbox pro">
+                    
+                        <div  class="bg-info row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 pro<?php echo $distributor['product_id'];?>">
+                             <div  class="checkbox1 searchcheckbox1" id='product_section' >
+                                 
+                                <?php if($distributor['opening_inv'] > 0) { ?><a href="<?php echo $distributor['href']; ?>"><?php } ?>  <input style="display:none;" type="checkbox" name="product[<?php echo $distributor['product_id']; ?>][]" value="<?php echo $distributor['product_id']; ?>" id="a_<?php echo $distributor['product_id']; ?>" class="elements" />
+                                
+                                  <label for="<?php echo $distributor['product_id']; ?>">
+                                    <?php if($distributor['opening_inv'] > 0) { ?> 
+                            
+                                        <img src="https://www.true-elements.com/admin/view/image/logo.png" class="elements-image"/>
+                                    <?php } else { ?>
+                                         <img src="/image/data/pending.png" class="elements-image"/>
+                                    <?php } ?> 
+                                    <div  class="product-details">
+                                        <p class="cat"><?php echo $distributor['name']; ?></p>
+                                      <p class="name" style="color:#000;"><?php echo $distributor['name']; ?></span></p>
+                                      <p class="price">Opening Inv: <?php echo $distributor['opening_inv']; ?></p>
+                                      <p class="price" >Primary sales: <span class="special-price"><?php echo $distributor['primary_sales']; ?></span></p>
+                                      <p class="price" >Secondary Sales: <span class="special-price"><?php echo $distributor['primary_sales']; ?></span></p>
+                                      <span style="font-size: 15px;color:#000;font-weight: 600;">In Hand Inventory: <?php echo $distributor['in_hand_inv']; ?></span>
+                                    </div>
+                                  </label>
+                                 <?php if($distributor['opening_inv'] > 0) { ?></a><?php } ?>  
+                            </div>
+                            </div>
+                        </div> 
+                        
+                    <?php } ?>    
+                <?php } ?>
+              <?php } ?>
+                                   
+                          </div> 
+                        </div>
+                    </div>
+                 </div>
+              </div>
+        
+          <!--Main Section-->
+      </div>
+      </div>
+      </div>
+      </div>
+                                    
+      
+      
+<!--      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<input type="hidden" name="location" id="location" style="width:25%">-->
+
+ <button class="btn btn-sm btn-warning rounded-circle position-fixed end-0 translate-middle d-none" onclick="scrollToTop()" id="back-to-up"><i class="fa fa-arrow-up text-white" aria-hidden="true"></i>
+</button>
+
+<div id="address"></div>
+ 
+
+<script type="text/javascript">                                         
+    $(document).ready(function() {
+        if( $.cookie('showOnlyOne') ){
+            //it is still within the day 
+            //hide the div
+            $('#notificationpopup').modal('hide');
+        } else {
+            //either cookie already expired, or user never visit the site
+            //create the cookie
+            $('#notificationpopup').modal('show');  
+            $.cookie('showOnlyOne', 'showOnlyOne', { expires: 1 });
+            //and display the div
+        }
+    });
+</script>
+ 
+
+  <script>//ankit
+    window.onscroll = () => {
+  toggleTopButton();
+}
+function scrollToTop(){
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+//ankit
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<link rel="stylesheet" href="https://www.true-elements.in/admin/view/stylesheet/select2.min.css" type="text/css" />
+<script type="text/javascript" src="https://www.true-elements.in/admin/view/javascript/select2.min.js"></script>
+
+<script type="text/javascript">
+    $('.sel').select2();
+</script>
+
+<script type="text/javascript">
+    jQuery("#myInput").on("keyup", function() {
+        // Retrieve the input field text and reset the count to zero
+        var filter = $(this).val(),
+        count = 0;
+        // Loop through the comment list
+        $('#myDIV div .searchcheckbox1 label div .name').each(function() {
+            // If the list item does not contain the text phrase fade it out
+            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                $(this).parent().parent().parent().parent().hide();  // MY CHANGE
+                // Show the list item if the phrase matches and increase the count by 1
+            } else {
+                $(this).parent().parent().parent().parent().show(); // MY CHANGE
+                count++;
+            }
+        });
+    });
+    
+    $("#myDropdown").change(function () {
+        // Retrieve the input field text and reset the count to zero
+        var filter = $(this).val(),
+        count = 0;
+        // Loop through the comment list
+        $('#myDIV div .searchcheckbox1 label div .cat').each(function() {
+            // If the list item does not contain the text phrase fade it out
+            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                $(this).parent().parent().parent().parent().hide();  // MY CHANGE
+                // Show the list item if the phrase matches and increase the count by 1
+            } else {
+                $(this).parent().parent().parent().parent().show(); // MY CHANGE
+                count++;
+            }
+        });
+    });
+  </script> 

@@ -1,0 +1,165 @@
+<div class="col-lg-6 col-md-8 col-sm-10 col-12">
+    <!--//hide it later-->
+    <select name="customer_group_id" class="form-control" style="width: 50%;">
+        <?php foreach ($customer_groups as $customer_group) { ?>
+            <?php if ($customer_group['customer_group_id'] == 21) { ?>
+                <?php if ($customer_group['customer_group_id'] == $customer_group_id) { ?>
+                    <option value="<?php echo $customer_group['customer_group_id']; ?>" selected="selected"><?php echo $customer_group['name']; ?> (<?php echo round($customer_group['discount'], 1)."%"; ?>)</option>
+                <?php } else { ?>
+                    <option value="<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?> (<?php echo round($customer_group['discount'], 1)."%"; ?>)</option>
+                <?php } ?>
+            <?php } ?>
+        <?php } ?>
+    </select>
+    <?php if ($error_customer_group_id) { ?>
+        <div class="text-danger"><span class="error"><?php echo $error_customer_group_id; ?></span></div>
+    <?php } ?>
+</div>
+
+
+
+Adjust this with proper alignment using bootstrap without changing  the actual code, only write bootstrap for responsiveness.
+
+
+
+
+
+
+for elements in one row.
+            <div class="form-group row">
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-md-6">
+                <input class="form-control" name="fssai" placeholder="FSSAI Licence Number" value="<?php echo $fssai; ?>" maxlength="14" />
+            </div>
+            <div class="col-md-6">
+                <input  class="form-control" name="city" placeholder="<?php echo $entry_city; ?> *" value="<?php echo $city; ?>" />
+                <?php if ($error_city) { ?>
+                    <span class="error"><?php echo $error_city; ?></span>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+CSS Below
+ /*input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, select, .greenBtn, .orangeButton {*/
+ /*       width: 100%;*/
+ /*       float: left;*/
+ /*       height: 45px;*/
+ /*       line-height: 45px;*/
+        /* border: 1px solid #f1f1f1; */
+ /*       padding: 0 15px;*/
+ /*       font-family: 'Muli', sans-serif;*/
+ /*       font-weight: 300;*/
+ /*       font-size: 1.4em;*/
+ /*       border-radius: 25px;*/
+ /*       color: #676767;*/
+ /*       background: #fff;*/
+ /*   }*/
+
+
+
+    /*h2.title, h1.title {*/
+    /*    text-align: center;*/
+    /*    color: #676767;*/
+    /*    font-size: 3.2em;*/
+    /*    font-weight: 700;*/
+    /*    padding: 0;*/
+    /*    line-height: 1em;*/
+    /*}*/
+    
+    /*.heading {*/
+    /*    width: 100%;*/
+    /*    float: left;*/
+    /*    padding: 0px 20px 20px 20px;*/
+    /*    z-index: 2;*/
+    /*    position: relative;*/
+    /*}*/
+  
+
+
+Backup
+            <div class="form-group">
+                <div class="col-sm-1 col-xs-1 col-md-1"></div>       
+                <div class="col-sm-10 col-xs-10 col-md-10">          
+                    <select name="zone_id" class="form-control"></select>
+                        <?php if ($error_zone) { ?>
+                            <span class="error"><?php echo $error_zone; ?></span>
+        				<?php } ?>
+                    <input type="hidden" class="form-control" name="password" value="123456" />
+                    <input type="hidden" class="form-control" name="confirm" value="123456" />
+                </div>
+                <div class="col-sm-1 col-xs-1 col-md-1"></div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-1 col-xs-1 col-md-1"></div>
+                <div class="col-sm-10 col-xs-10 col-md-10">
+                    <select name="district_id" class="form-control"></select>
+                </div>
+                <div class="col-sm-1 col-xs-1 col-md-1"></div>
+            </div>
+
+
+
+
+
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-md-12">
+                <select name="zone_id" class="form-control"></select>
+                <?php if ($error_zone) { ?>
+                    <span class="error"><?php echo $error_zone; ?></span>
+                <?php } ?>
+                <input type="hidden" class="form-control" name="password" value="123456" />
+                <input type="hidden" class="form-control" name="confirm" value="123456" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-md-12">
+                <select name="district_id" class="form-control"></select>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+The code you provided is a form tag with the following attributes:
+
+* `action`: This attribute specifies the URL that the form will be submitted to.
+* `class`: This attribute specifies the CSS class that will be applied to the form.
+* `method`: This attribute specifies the HTTP method that will be used to submit the form.
+* `enctype`: This attribute specifies the content type of the form data.
+* `align`: This attribute specifies the alignment of the form on the page.
+
+The `action` attribute is required, and the `method` attribute should be set to `post` if you are submitting any form data. The `enctype` attribute is only required if you are submitting binary data, such as images or files. The `align` attribute is optional, and it can be set to `left`, `center`, or `right`.
+
+The `form` tag is used to create a form element in HTML. Forms are used to collect user input, and they can be used to submit data to a server. The `form` tag has a number of attributes that can be used to configure its behavior, such as the `action`, `method`, and `enctype` attributes.
+
+I hope this explanation is helpful! Let me know if you have any other questions.
