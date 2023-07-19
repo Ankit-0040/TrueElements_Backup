@@ -1,0 +1,36 @@
+1. Distributory Inventory Report
+account/Distributor_Inventory Report page. added css file
+    default/template/account/distributor_inventory/distributor_inventory.tpl  [Updated added css file new/account_distributor_inventory.css]
+    default/template/account/distributor_inventory/product_inventory.tpl [Not changed] 
+
+2. Add Distributor
+    default/template/account/addcustomer.tpl page.  [update and added css file stylesheet/new/add_customer.css]
+    default/template/account/distributor_agreement.tpl [Not changed]
+
+3. Add Outlet
+    account/addstore Page. added css file 
+
+
+4. assign.php(controller) It consist of 2 tpl file
+	default/template/account/assign.tpl        updated.17/07/23  ==> assign(click) success page.(header) directly
+	default/template/product/sellerapp.tpl     onhold
+
+
+5. account/promoter
+	/template/account/promoter_order_list.tpl updated 18/07/23 without css
+	/template/account/promoter_order_info.tpl page not found 
+	/template/account/promoter_sample_summary.tpl updated 19/07/23 without css
+
+6. account/lead
+    default/template/account/Lead/lead_form.tpl
+    default/template/account/Lead/lead_list.tpl
+    default/template/account/Lead/lead_info.tpl
+    default/template/account/Lead/lead_history.tpl
+
+
+7. account/channel_review (Currently not in use ) onhold
+    default/template/account/ReviewTracker/channel_review_form.tpl 
+    default/template/account/ReviewTracker/channel_review_list.tpl
+    default/template/account/ReviewTracker/channel_review_info.tpl
+    default/template/account/ReviewTracker/channel_review_history.tpl
+
