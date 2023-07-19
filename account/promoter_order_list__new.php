@@ -1,6 +1,22 @@
 <?php echo $new_header; ?> 
-<link href="catalog/view/theme/default/stylesheet/new/common.css" rel="stylesheet" media="screen" />
-<link href="catalog/view/theme/default/stylesheet/new/promoter_order_list.css" rel="stylesheet" media="screen" />
+<style>
+ .breadcrumb-separator {
+    color: #888;
+    margin: 0 5px;
+}
+.breadcrumb-link {
+    color: #333;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+.breadcrumb-link:hover {
+    color: #007bff;
+}
+    #add-list {
+    width: 35px;
+    height: 35px;
+}
+</style>
 <?php if ($success) { ?>
     <div class="success"><?php echo $success; ?></div>
 <?php } ?>
@@ -11,11 +27,16 @@
 
 <div id="content">
     <?php echo $content_top; ?>
-  <div class="breadcrumb breadcrumb-sm mb-3">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+    
+        <div class="breadcrumb  py-2 px-3">
+    <?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
+        <?php if ($key > 0) { ?>
+            <span class="breadcrumb-separator">&#8594;</span>
+        <?php } ?>
+        <a class="breadcrumb-link" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
     <?php } ?>
-  </div>
+</div>
+    
   
   <?php if ($orders) { ?>
     <div class="container">

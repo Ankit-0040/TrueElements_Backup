@@ -189,6 +189,44 @@ Backup
 
 
 
+<div class="col-md-4 col-md-offset-4 col-xs-12 col-sm-12">
+                <div class="form-group"> 
+                    <label>Sample Taste Count:</label>
+    				<input type="text" class="form-control" name="sample_taste_count" value="<?php echo $sample_taste_count; ?>" <?php echo $disabled; ?>>
+    			</div>
+                <div class="form-group required">
+                    <label>Conversion:</label>
+                    <input type="text" class="form-control" name="conversion_customer_count" value="<?php echo $conversion_customer_count; ?>" <?php echo $disabled; ?>>
+                </div>
+                
+                <div class="form-group"> 
+                    <label>Units Sold:</label>
+    				<input type="text" class="form-control" name="quantity" value="<?php echo $quantity; ?>" <?php echo $disabled; ?>>
+    			</div>
+    			
+    			<div class="form-group"> 
+                    <label>Sale:</label>
+    				<input type="text" class="form-control" name="sale" value="<?php echo round($sale); ?>" <?php echo $disabled; ?>>
+    			</div>
+                
+                <div class="form-group text-center">
+                    <input class="button btn btn-primary" type="submit" value="Submit Sample Summary" <?php echo $disabled; ?>>
+                </div>
+            </div>
+
+align in middle of the screen and adjust it properly accordingly as per device , Make this responsive for smartwatches,  mobile, table, laptop, 4k screens. Also add background color to it i.e bg-color- "#eee" 
+
+
+
+
+    <div class="breadcrumb">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+            <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+        <?php } ?>
+    </div>
+
+can you provide me the best style for this breadcrumb , it should be attractive to the user and user should understand on which page the user is.  Make this responsive for smartwatches,  mobile, table, laptop, 4k screens. if needed do add background color to it.
+
 
 The code you provided is a form tag with the following attributes:
 
