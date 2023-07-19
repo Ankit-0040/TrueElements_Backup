@@ -23,7 +23,7 @@ account/Distributor_Inventory Report page. added css file
 
 6. account/lead
     default/template/account/Lead/lead_form.tpl
-    default/template/account/Lead/lead_list.tpl
+    default/template/account/Lead/lead_list.tpl Currently Working 20/07/23
     default/template/account/Lead/lead_info.tpl
     default/template/account/Lead/lead_history.tpl
 

@@ -1,10 +1,4 @@
-<?php echo $quick_header; ?>
-    <script type="text/javascript" src="catalog/view/javascript/jquery/ajaxupload.js"></script>
-    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet" />
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<?php echo $new_header; ?>
 <style>
     .pink {
         color: #feac00;
@@ -175,7 +169,7 @@
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
- }
+}
 
     .onoffswitch-inner:before {
         content: "Active";
@@ -369,7 +363,7 @@
   <?php if ($success) { ?>
     <div class="success col-md-12"><?php echo $success; ?></div>
   <?php } ?>
-  <!--<div class="box col-md-12">-->
+  <!--<div class="box col-md-12"    >-->
     <div class="heading"> 
       <center><h1 class="p-0 my-3"><span class="pink">Leads</span> List</h1></center>
       <div class="col-lg-12 buttons padding-0" id="btnbox" style="display:none;">
