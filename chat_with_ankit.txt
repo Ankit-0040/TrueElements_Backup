@@ -217,6 +217,9 @@ Backup
 align in middle of the screen and adjust it properly accordingly as per device , Make this responsive for smartwatches,  mobile, table, laptop, 4k screens. Also add background color to it i.e bg-color- "#eee" 
 
 
+for this, 'separator' => $this->language->get('text_separator') 
+Which language file is getting loaded for the the word in 'text_separator
+
 
 
     <div class="breadcrumb">
