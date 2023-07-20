@@ -420,7 +420,9 @@
 
 
   </script>
-  
+  </div>
+  </div>
+ <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-9 col-sm-9 col-9 p-0"> 
   <div class="content <?php echo $class_name; ?> col-12 col-sm-12">
   <form action="" method="post" enctype="multipart/form-data" id="form">
     <div class="table-responsive">
@@ -534,7 +536,6 @@
     </form>
       <!-- Mobile UI end -->
     </div>
-  </div>
   </div>
   
    
