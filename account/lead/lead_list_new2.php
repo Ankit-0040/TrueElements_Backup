@@ -263,7 +263,7 @@
 
     <div class="row">
         <div class="col-12">
-            <input id="myInput2" type="text" placeholder="Type here..." class="d-none">
+            <input id="myInput2" type="text" placeholder="Type here..." class="d-sm-none">
         </div>
     </div>
 </div>
@@ -294,7 +294,6 @@
             <div class="sticky-top">
                 <div class="py-3 px-lg-2 px-xl-2 px-xxl-3 px-1 shadow rounded-4 bg-white">
                 <div class="col-12 my-2">
-                    
                 <?php if($category_name) { ?>
                     <select class="form-select sel" onchange="location = this.value;">
                         <option value="/account/lead" selected>Select Category</option>
@@ -308,14 +307,15 @@
                     </select>
                     </div>
                     
-                    <div class="px-lg-12 px-xl-12 px-xxl-12 "></div>
-                    <a href="https://www.true-elements.in/account/lead" class="btn btn-primary btn-block navigation-btn mb-2">All</a>
+                    
+                    <a href="https://www.true-elements.in/account/lead" class="btn btn-primary d-block navigation-btn mb-2">All</a>
                     
                     <?php foreach($lead_typess AS $lead_type) { ?> 
                         <?php if($lead_type['lead_category_id'] == $category_name) { ?>
-                            <a href="<?php echo $lead_type['href']; ?>" class="btn btn-block navigation-btn" style="margin-bottom: 10px; background: #f49a25;color:#fff;"><?php echo $lead_type['lead_category_name']; ?></a>
+                            <a href="<?php echo $lead_type['href']; ?>" class="btn btn-primary d-block mb-2 navigation-btn"><?php echo $lead_type['lead_category_name']; ?></a>
                         <?php } else { ?>
-                            <a href="<?php echo $lead_type['href']; ?>" class="btn btn-block btn-info navigation-btn" style="margin-bottom: 10px;"><?php echo $lead_type['lead_category_name']; ?></a>
+                            <a href="<?php echo $lead_type['href']; ?>" class="btn btn-primary d-block mb-2 navigation-btn"><?php echo $lead_type['lead_category_name']; ?></a>
+
                         <?php } ?>
                     <?php } ?>
                 </div>
@@ -330,9 +330,9 @@
                         <?php } ?>
                     </select>
                     <label>Category</label>
-                    <a href="https://www.true-elements.in/account/lead" class="btn btn-block btn-info navigation-btn" style="margin-bottom: 10px;">All</a>
+                    <a href="https://www.true-elements.in/account/lead" class="btn btn-primary d-block mb-2 navigation-btn">All</a>
                     <?php foreach($lead_typess AS $lead_type) { ?>
-                        <a href="<?php echo $lead_type['href']; ?>" class="btn btn-block btn-info navigation-btn" style="margin-bottom: 10px;"><?php echo $lead_type['lead_category_name']; ?></a>
+                        <a href="<?php echo $lead_type['href']; ?>" class="btn btn-primary d-block mb-2 navigation-btn"><?php echo $lead_type['lead_category_name']; ?></a>
                     <?php } ?>
                 </div>    
                 <?php $class_name = "col-md-10"; ?>
@@ -342,40 +342,40 @@
 </div>
 
     
-<div class="d-none">
-    <div id="show-filter">
-      <i class="fa fa-filter"></i>
+<div class="d-sm-none">
+  <div id="show-filter">
+    <i class="fa fa-funnel"></i>
+  </div>
+
+  <div id="mobile-filter" class="col-9 col-sm-6">
+    <div class="filter-close">
+      <span class="float-end"><i class="bi bi-x"></i></span>
     </div>
 
- <div id="mobile-filter" class="col-xs-9 col-sm-6">
-      <div class="filter-close">
-        <span class="pull-right"><i class="fa fa-close"></i></span>
-      </div>
-    
-      <div class="fpanel panel panel-default">
-        <div class="list-group">
-          <a class="list-group-item">Select Category</a>
-          <div class="list-group-item">
-            <div id="filter-group1" class="filter-group">
-              <select Id="myDropdown2" style="height: 37px;width: 100%;" placeholder="Please">
-                <option value="" selected style="color:#000000;font-size:15px;">Select your option</option>
-                
-                  <?php foreach($lead_typess AS $lead_type) { ?> 
-                     <option value="<?php echo $lead_type['href']; ?>"><?php echo $lead_type['lead_category_name']; ?></option>
-                  <?php } ?>
-              </select>
-            </div>
+    <div class="fpanel shadow-sm border border-secondary">
+      <div class="list-group">
+        <a class="list-group-item">Select Category</a>
+        <div class="list-group-item">
+          <div id="filter-group1" class="filter-group">
+            <select id="myDropdown2" class="form-select" style="height: 37px; width: 100%;">
+              <option value="" selected>Select your option</option>
+              <?php foreach ($lead_typess AS $lead_type) { ?>
+                <option value="<?php echo $lead_type['href']; ?>"><?php echo $lead_type['lead_category_name']; ?></option>
+              <?php } ?>
+            </select>
           </div>
-          <a class="list-group-item">Search</a> 
-          <div class="list-group-item">
-            <div id="filter-group1" class="filter-group">
-             <input id="myInput3" type="text" style="font-size: 17px;width:100%" placeholder="Type here...">
-           </div>
-         </div>        
-       </div>
-     </div> 
+        </div>
+        <a class="list-group-item">Search</a>
+        <div class="list-group-item">
+          <div id="filter-group1" class="filter-group">
+            <input id="myInput3" type="text" class="form-control" style="font-size: 17px; width: 100%;" placeholder="Type here...">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+
   
      
     <script type="text/javascript">
@@ -420,6 +420,8 @@
 
 
   </script>
+  
+  
     <div class="content <?php echo $class_name; ?> col-xs-12 col-sm-12">
     <form action="" method="post" enctype="multipart/form-data" id="form">     
       <!--  <table class="hidden-xs hidden-sm" cellspacing="50" style="  border-spacing: 0px 0px;" width="100%" id="leads">-->

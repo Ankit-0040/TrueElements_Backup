@@ -1,5 +1,59 @@
 20/07/23
 
+<div class="footleft">
+   
+    <?php if($category_name) { ?>
+            <div class="footnav col-md-2 col-xs-12 col-sm-12 hidden-xs hidden-sm">
+                 <select style="height: 37px;width: 100%;font-size: 17px;margin-bottom: 7%;" class="sel"  onchange="location = this.value;">
+                    <option value="/account/lead" selected style="font-size:15px;">Select Category</option>
+                    <?php foreach($lead_typess AS $lead_type) { ?>
+                        <?php if($lead_type['lead_category_id'] == $category_name) { ?>
+                            <option value="<?php echo $lead_type['href']; ?>" selected><?php echo $lead_type['lead_category_name']; ?></option>
+                       <?php } else { ?> 
+                            <option value="<?php echo $lead_type['href']; ?>"><?php echo $lead_type['lead_category_name']; ?></option>
+                        <?php } ?>
+                    <?php } ?>
+                </select>
+                
+                    <a href="https://www.true-elements.in/account/lead" class="btn btn-block btn-info navigation-btn" style="margin-bottom: 10px;">All</a>
+                    <?php foreach($lead_typess AS $lead_type) { ?> 
+                     <?php if($lead_type['lead_category_id'] == $category_name) { ?>
+                            <a href="<?php echo $lead_type['href']; ?>" class="btn btn-block navigation-btn" style="margin-bottom: 10px; background: #f49a25;color:#fff;"><?php echo $lead_type['lead_category_name']; ?></a>
+                        <?php } else { ?>
+                            <a href="<?php echo $lead_type['href']; ?>" class="btn btn-block btn-info navigation-btn" style="margin-bottom: 10px;"><?php echo $lead_type['lead_category_name']; ?></a>
+                        <?php } ?>
+                    <?php } ?>
+                </div>
+                <?php $class_name = "col-md-10"; ?>
+            <?php } else { ?>
+                <div class="footnav col-md-2 col-xs-12 col-sm-12 hidden-xs hidden-sm" style="margin-top: 50px;width:11%;">
+                    
+                    <select class="sel" style="font-size: 17px;margin-bottom: 7%;height: 37px;width: 100%;"  onchange="location = this.value;">
+                    <option value="/account/lead" selected style="color:#000000;font-size:15px;">Select Category</option>
+                    <?php foreach($lead_typess AS $lead_type) { ?> 
+                        <option value="<?php echo $lead_type['href']; ?>"><?php echo $lead_type['lead_category_name']; ?></option>
+                              <?php } ?>
+                </select>
+                
+                <label>Category</label>
+
+                    <a href="https://www.true-elements.in/account/lead" class="btn btn-block btn-info navigation-btn" style="margin-bottom: 10px;">All</a>
+                    <?php foreach($lead_typess AS $lead_type) { ?>
+                    <a href="<?php echo $lead_type['href']; ?>" class="btn btn-block btn-info navigation-btn" style="margin-bottom: 10px;"><?php echo $lead_type['lead_category_name']; ?></a>
+                    <?php } ?>
+                </div>    
+                <?php $class_name = "col-md-10"; ?>
+            <?php } ?>
+            
+           
+    </div>
+
+Remove all style tag add those property in bootstrap5 ,without changing the actual code and addd class accordingly to the file , pls change maximmum css if possible and also make it responsive for all devices including smart watches,TV,desktop,mobile. 
+
+
+
+
+
 <div class="col-lg-12" id="btnbox" style="display:none;">
     <div class="row mb" id="stick">
         <div class="col-md-offset-6 col-md-6 col-xs-12 col-sm-offset-5 col-sm-6" style="min-height: 65px;">
