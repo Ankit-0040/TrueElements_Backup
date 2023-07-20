@@ -1,4 +1,5 @@
 <?php echo $new_header; ?>
+<link href="catalog/view/theme/default/stylesheet/new/lead_list.css" rel="stylesheet" media="screen" />
 <style>
     .pink {
         color: #feac00;
@@ -126,124 +127,10 @@
         
     }
     
-    .onoffswitch {
-        position: relative;
-        width: 90px;
-        -webkit-user-select:none;
-        -moz-user-select:none;
-        -ms-user-select: none;
-    }
-
-    .onoffswitch-checkbox {
-        display: none;
-    }
-
-    .onoffswitch-label {
-        display: block;
-        overflow: hidden;
-        cursor: pointer;
-        border: 2px solid #ccc;
-        border-radius: 20px;
-    }
-    
-    .onoffswitch-inner {
-        display: block;
-        width: 200%;
-        margin-left: -100%;
-        -moz-transition: margin 0.3s ease-in 0s;
-        -webkit-transition: margin 0.3s ease-in 0s;
-        -o-transition: margin 0.3s ease-in 0s;
-        transition: margin 0.3s ease-in 0s;
-    }
-
-    .onoffswitch-inner:before, .onoffswitch-inner:after {
-        display: block;
-        float: left;
-        width: 50%;
-        height: 30px;
-        padding: 0;
-        line-height: 30px;
-        font-size: 14px;
-        color: white;
-        font-weight: bold;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-}
-
-    .onoffswitch-inner:before {
-        content: "Active";
-        padding-left: 10px;
-        background-color: #f49a25;
-        color: #fff;
-    }
-
-    .onoffswitch-inner:after {
-        content: "All";
-        padding-right: 10px;
-        background-color: #31b0d5;
-        color: #fff;
-        text-align: right;
-    }
-
-    .onoffswitch-switch {
-        display: block;
-        width: 18px;
-        margin: 6px;
-        background: #FFFFFF;
-        border: 2px solid #999999;
-        border-radius: 20px;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 56px;
-        -moz-transition: all 0.3s ease-in 0s;
-        -webkit-transition: all 0.3s ease-in 0s;
-        -o-transition: all 0.3s ease-in 0s;
-        transition: all 0.3s ease-in 0s; 
-    }
-
-    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-        margin-left: 0;
-    }
-
-    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-        right: 0px; 
-    }
-
+   
     
 
-    @media (max-width: 450px) and (min-width: 360px){
-        .leadbtn{
-          font-size: 12px;
-          margin-left: 0 !important;
-          font-weight: 501;
-          padding: 8px 10px;
-        }
         
-         
-        .activ{
-            margin-left: -11px;
-           
-         }
-
-         .rowmb{
-            
-            margin-bottom: 30px;
-         }
-         #sticky{
-            position: static !important;
-         }
-     } 
-
-     .btn-dang
-         {
-            background-color: #ee2500 !important;
-            color: #fff;
-         }  
-         #myonoffswitch{
-            display: none;
-         } 
 
     div #sticky {
             position: -webkit-sticky;
@@ -369,38 +256,40 @@
     <div class="page_header p-1 bg-light text-center"><p class="mb-1 fs-6 fw-bold">Lead List</p>
     </div>
     <!--button started-->
-      <div class="col-lg-12" id="btnbox" style="display:none;">
-    <div class="row mb" id="stick">
-        <div class="col-md-offset-6 col-md-6 col-xs-12 col-sm-offset-5 col-sm-6" style="min-height: 65px;">
-            <div class="activ col-md-offset-4 col-md-1 col-xs-4 col-sm-3">
-                <div class="onoffswitch">
-                    <?php if($show == "Active") { ?>
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                    <?php } else { ?>
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
-                    <?php } ?>
-                    
-                    <label class="onoffswitch-label" for="myonoffswitch">
-                        <span class="onoffswitch-inner"></span>
-                        <span class="onoffswitch-switch"></span>
-                    </label>
-                </div>
+      <div class="container">
+    <div class="row mb-3" id="stick">
+        <div class="col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-md-end justify-content-sm-center">
+            <div class="form-check form-switch">
+                <?php if($show == "Active") { ?>
+                    <input type="checkbox" name="onoffswitch" class="form-check-input" id="myonoffswitch" checked>
+                <?php } else { ?>
+                    <input type="checkbox" name="onoffswitch" class="form-check-input" id="myonoffswitch">
+                <?php } ?>
+
+                <label class="form-check-label mx-2" for="myonoffswitch">
+                    Active
+                </label>
             </div>
+        </div>
+
         <?php if($user =='puru@true-elements.com' || $user == 'Sujit') { ?>
-            <div class="col-md-offset-1 col-md-1 col-xs-4 col-sm-3">
+            <div class="col-md-1 col-sm-3 col-4 d-flex align-items-center justify-content-md-start justify-content-sm-center justify-content-end">
                 <a class="btn btn-info leadbtn" data-toggle="modal" data-target="#addleadcategory">Add Category</a>
             </div>
         <?php } ?>
-            <div class="col-md-offset-2 col-md-2 col-xs-offset-1 col-xs-3 col-sm-2">
-                <a class="btn btn-primary leadbtn" data-toggle="modal" data-target="#addlead">Add Lead</a>
-            </div>
-         </div>
-     
-      <div class="col-xs-12 hidden-lg">
-        <input id="myInput2" type="text"  placeholder="Type here..." style="width:100%; font-size: 17px;margin-top: 7%;">
-      </div>
-  </div>
-  </div> 
+
+        <div class="col-md-2 col-sm-3 col-8 d-flex align-items-center justify-content-md-start justify-content-sm-center justify-content-end">
+            <a class="btn btn-primary leadbtn" data-toggle="modal" data-target="#addlead">Add Lead</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <input id="myInput2" type="text" placeholder="Type here..." class="w-100 form-control-lg">
+        </div>
+    </div>
+</div>
+ 
    <!--button closed-->
 <div id="sticky">   
 <div class="footleft">
@@ -1038,3 +927,55 @@
 
 </script>
 <?php echo $quick_footer; ?>
+
+
+.form-check-label {
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    padding: 4px 12px;
+}
+
+.form-check-input:checked + .form-check-label {
+    background-color: #f49a25;
+    color: #fff;
+}
+
+.form-check-input:checked + .form-check-label::before {
+    content: "Active";
+    padding-right: 10px;
+}
+
+.form-check-label::before {
+    content: "All";
+    padding-left: 10px;
+}
+
+@media (max-width: 575px) {
+    .leadbtn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .activ {
+        margin-left: -11px;
+    }
+
+    #stick {
+        margin-bottom: 30px;
+    }
+}
+
+.btn-dang {
+    background-color: #ee2500 !important;
+    color: #fff;
+}
+
+#myonoffswitch {
+    display: none;
+}
+
+.modal-body {
+    margin-right: 70px;
+    margin-left: 0px;
+}

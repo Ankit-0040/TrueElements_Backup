@@ -1,0 +1,433 @@
+20/07/23
+
+<div class="col-lg-12" id="btnbox" style="display:none;">
+    <div class="row mb" id="stick">
+        <div class="col-md-offset-6 col-md-6 col-xs-12 col-sm-offset-5 col-sm-6" style="min-height: 65px;">
+            <div class="activ col-md-offset-4 col-md-1 col-xs-4 col-sm-3">
+                <div class="onoffswitch">
+                    <?php if($show == "Active") { ?>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                    <?php } else { ?>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                    <?php } ?>
+                    
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+            </div>
+        <?php if($user =='puru@true-elements.com' || $user == 'Sujit') { ?>
+            <div class="col-md-offset-1 col-md-1 col-xs-4 col-sm-3">
+                <a class="btn btn-info leadbtn" data-toggle="modal" data-target="#addleadcategory">Add Category</a>
+            </div>
+        <?php } ?>
+            <div class="col-md-offset-2 col-md-2 col-xs-offset-1 col-xs-3 col-sm-2">
+                <a class="btn btn-primary leadbtn" data-toggle="modal" data-target="#addlead">Add Lead</a>
+            </div>
+         </div>
+     
+      <div class="col-xs-12 hidden-lg">
+        <input id="myInput2" type="text"  placeholder="Type here..." style="width:100%; font-size: 17px;margin-top: 7%;">
+      </div>
+  </div>
+  </div> 
+
+
+.onoffswitch {
+        position: relative;
+        width: 90px;
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select: none;
+    }
+
+    .onoffswitch-checkbox {
+        display: none;
+    }
+
+    .onoffswitch-label {
+        display: block;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid #ccc;
+        border-radius: 20px;
+    }
+    
+    .onoffswitch-inner {
+        display: block;
+        width: 200%;
+        margin-left: -100%;
+        -moz-transition: margin 0.3s ease-in 0s;
+        -webkit-transition: margin 0.3s ease-in 0s;
+        -o-transition: margin 0.3s ease-in 0s;
+        transition: margin 0.3s ease-in 0s;
+    }
+
+    .onoffswitch-inner:before, .onoffswitch-inner:after {
+        display: block;
+        float: left;
+        width: 50%;
+        height: 30px;
+        padding: 0;
+        line-height: 30px;
+        font-size: 14px;
+        color: white;
+        font-weight: bold;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+    .onoffswitch-inner:before {
+        content: "Active";
+        padding-left: 10px;
+        background-color: #f49a25;
+        color: #fff;
+    }
+
+    .onoffswitch-inner:after {
+        content: "All";
+        padding-right: 10px;
+        background-color: #31b0d5;
+        color: #fff;
+        text-align: right;
+    }
+
+    .onoffswitch-switch {
+        display: block;
+        width: 18px;
+        margin: 6px;
+        background: #FFFFFF;
+        border: 2px solid #999999;
+        border-radius: 20px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 56px;
+        -moz-transition: all 0.3s ease-in 0s;
+        -webkit-transition: all 0.3s ease-in 0s;
+        -o-transition: all 0.3s ease-in 0s;
+        transition: all 0.3s ease-in 0s; 
+    }
+
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+        margin-left: 0;
+    }
+
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+        right: 0px; 
+    }
+
+    
+
+    @media (max-width: 450px) and (min-width: 360px){
+        .leadbtn{
+          font-size: 12px;
+          margin-left: 0 !important;
+          font-weight: 501;
+          padding: 8px 10px;
+        }
+        
+         
+        .activ{
+            margin-left: -11px;
+           
+         }
+
+         .rowmb{
+            
+            margin-bottom: 30px;
+         }
+         #sticky{
+            position: static !important;
+         }
+     } 
+
+     .btn-dang
+         {
+            background-color: #ee2500 !important;
+            color: #fff;
+         }  
+         #myonoffswitch{
+            display: none;
+         } 
+
+    .modal-body{
+            margin-right: 70px;
+            margin-left: 0px;
+        } 
+
+
+
+Change change the css into bootstrap5 accordingly, without changing the actual code and addd class accordingly to the file , pls change maximmum css if possible and also make it responsive for all devices including smart watches,TV,desktop,mobile. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-lg-6 col-md-8 col-sm-10 col-12">
+    <!--//hide it later-->
+    <select name="customer_group_id" class="form-control" style="width: 50%;">
+        <?php foreach ($customer_groups as $customer_group) { ?>
+            <?php if ($customer_group['customer_group_id'] == 21) { ?>
+                <?php if ($customer_group['customer_group_id'] == $customer_group_id) { ?>
+                    <option value="<?php echo $customer_group['customer_group_id']; ?>" selected="selected"><?php echo $customer_group['name']; ?> (<?php echo round($customer_group['discount'], 1)."%"; ?>)</option>
+                <?php } else { ?>
+                    <option value="<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?> (<?php echo round($customer_group['discount'], 1)."%"; ?>)</option>
+                <?php } ?>
+            <?php } ?>
+        <?php } ?>
+    </select>
+    <?php if ($error_customer_group_id) { ?>
+        <div class="text-danger"><span class="error"><?php echo $error_customer_group_id; ?></span></div>
+    <?php } ?>
+</div>
+
+
+
+Adjust this with proper alignment using bootstrap without changing  the actual code, only write bootstrap for responsiveness.
+
+
+  <div class="container">
+<div class="col-md-10 col-xs-9 col-sm-9">
+    <div class="h3 fw-bold text-smaller">Promoter Samples</div>
+    <div class="buttons col-md-2 col-xs-3 col-sm-3">
+            <a class="btn btn-info pull-right" href="<?php echo $sample_summary; ?>"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
+</div>
+display button and heading in one row,use your best bootstrap, also make it reponsive for all devices including smart watches,TV,desktop,mobile. Also update the class of button in bootstrap5
+
+
+ <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Sample Taste Count</th>
+                    <th>Conversion</th>
+                    <th>Units Sold</th>
+                    <th>Sales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if($sample_summary_data) { ?>
+                    <?php foreach ($sample_summary_data as $data) { ?>
+                        <tr>
+                            <td><?php echo date('Y-m-d', strtotime($data['date_added'])); ?></td>
+                            <td><?php echo $data['sample_taste_count']; ?></td>
+                            <td><?php echo $data['conversion_customer_count']; ?></td>
+                            <td><?php echo $data['quantity']; ?></td>
+                            <td><?php echo round($data['sale']); ?></td>
+                        </tr>
+                    <?php } ?>
+                <?php } else { ?>
+                    <tr>
+                        <td class="text-center" colspan="5">No records found!</td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+
+
+align table in middle of the screen and adjust it properly accordingly as per device , Make this responsive for smartwatches,  mobile, table, laptop, 4k screens.
+
+
+
+for elements in one row.
+            <div class="form-group row">
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-md-6">
+                <input class="form-control" name="fssai" placeholder="FSSAI Licence Number" value="<?php echo $fssai; ?>" maxlength="14" />
+            </div>
+            <div class="col-md-6">
+                <input  class="form-control" name="city" placeholder="<?php echo $entry_city; ?> *" value="<?php echo $city; ?>" />
+                <?php if ($error_city) { ?>
+                    <span class="error"><?php echo $error_city; ?></span>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+CSS Below
+ /*input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, select, .greenBtn, .orangeButton {*/
+ /*       width: 100%;*/
+ /*       float: left;*/
+ /*       height: 45px;*/
+ /*       line-height: 45px;*/
+        /* border: 1px solid #f1f1f1; */
+ /*       padding: 0 15px;*/
+ /*       font-family: 'Muli', sans-serif;*/
+ /*       font-weight: 300;*/
+ /*       font-size: 1.4em;*/
+ /*       border-radius: 25px;*/
+ /*       color: #676767;*/
+ /*       background: #fff;*/
+ /*   }*/
+
+
+
+    /*h2.title, h1.title {*/
+    /*    text-align: center;*/
+    /*    color: #676767;*/
+    /*    font-size: 3.2em;*/
+    /*    font-weight: 700;*/
+    /*    padding: 0;*/
+    /*    line-height: 1em;*/
+    /*}*/
+    
+    /*.heading {*/
+    /*    width: 100%;*/
+    /*    float: left;*/
+    /*    padding: 0px 20px 20px 20px;*/
+    /*    z-index: 2;*/
+    /*    position: relative;*/
+    /*}*/
+  
+
+
+Backup
+            <div class="form-group">
+                <div class="col-sm-1 col-xs-1 col-md-1"></div>       
+                <div class="col-sm-10 col-xs-10 col-md-10">          
+                    <select name="zone_id" class="form-control"></select>
+                        <?php if ($error_zone) { ?>
+                            <span class="error"><?php echo $error_zone; ?></span>
+        				<?php } ?>
+                    <input type="hidden" class="form-control" name="password" value="123456" />
+                    <input type="hidden" class="form-control" name="confirm" value="123456" />
+                </div>
+                <div class="col-sm-1 col-xs-1 col-md-1"></div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-1 col-xs-1 col-md-1"></div>
+                <div class="col-sm-10 col-xs-10 col-md-10">
+                    <select name="district_id" class="form-control"></select>
+                </div>
+                <div class="col-sm-1 col-xs-1 col-md-1"></div>
+            </div>
+
+
+
+
+
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-md-12">
+                <select name="zone_id" class="form-control"></select>
+                <?php if ($error_zone) { ?>
+                    <span class="error"><?php echo $error_zone; ?></span>
+                <?php } ?>
+                <input type="hidden" class="form-control" name="password" value="123456" />
+                <input type="hidden" class="form-control" name="confirm" value="123456" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-md-12">
+                <select name="district_id" class="form-control"></select>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="col-md-4 col-md-offset-4 col-xs-12 col-sm-12">
+                <div class="form-group"> 
+                    <label>Sample Taste Count:</label>
+    				<input type="text" class="form-control" name="sample_taste_count" value="<?php echo $sample_taste_count; ?>" <?php echo $disabled; ?>>
+    			</div>
+                <div class="form-group required">
+                    <label>Conversion:</label>
+                    <input type="text" class="form-control" name="conversion_customer_count" value="<?php echo $conversion_customer_count; ?>" <?php echo $disabled; ?>>
+                </div>
+                
+                <div class="form-group"> 
+                    <label>Units Sold:</label>
+    				<input type="text" class="form-control" name="quantity" value="<?php echo $quantity; ?>" <?php echo $disabled; ?>>
+    			</div>
+    			
+    			<div class="form-group"> 
+                    <label>Sale:</label>
+    				<input type="text" class="form-control" name="sale" value="<?php echo round($sale); ?>" <?php echo $disabled; ?>>
+    			</div>
+                
+                <div class="form-group text-center">
+                    <input class="button btn btn-primary" type="submit" value="Submit Sample Summary" <?php echo $disabled; ?>>
+                </div>
+            </div>
+
+align in middle of the screen and adjust it properly accordingly as per device , Make this responsive for smartwatches,  mobile, table, laptop, 4k screens. Also add background color to it i.e bg-color- "#eee" 
+
+
+for this, 'separator' => $this->language->get('text_separator') 
+Which language file is getting loaded for the the word in 'text_separator
+
+
+
+    <div class="breadcrumb">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+            <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+        <?php } ?>
+    </div>
+
+can you provide me the best style for this breadcrumb , it should be attractive to the user and user should understand on which page the user is.  Make this responsive for smartwatches,  mobile, table, laptop, 4k screens. if needed do add background color to it.
+
+
+The code you provided is a form tag with the following attributes:
+
+* `action`: This attribute specifies the URL that the form will be submitted to.
+* `class`: This attribute specifies the CSS class that will be applied to the form.
+* `method`: This attribute specifies the HTTP method that will be used to submit the form.
+* `enctype`: This attribute specifies the content type of the form data.
+* `align`: This attribute specifies the alignment of the form on the page.
+
+The `action` attribute is required, and the `method` attribute should be set to `post` if you are submitting any form data. The `enctype` attribute is only required if you are submitting binary data, such as images or files. The `align` attribute is optional, and it can be set to `left`, `center`, or `right`.
+
+The `form` tag is used to create a form element in HTML. Forms are used to collect user input, and they can be used to submit data to a server. The `form` tag has a number of attributes that can be used to configure its behavior, such as the `action`, `method`, and `enctype` attributes.
+
+I hope this explanation is helpful! Let me know if you have any other questions.
