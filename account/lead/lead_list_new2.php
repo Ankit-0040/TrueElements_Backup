@@ -322,24 +322,24 @@
                 
                 <?php $class_name = "col-md-10"; ?>
             <?php } else { ?>
-                <div class="col-md-2 col-sm-12" style="margin-top: 50px;">
+                
                     <select class="form-select sel" onchange="location = this.value;">
                         <option value="/account/lead" selected>Select Category</option>
                         <?php foreach($lead_typess AS $lead_type) { ?> 
                             <option value="<?php echo $lead_type['href']; ?>"><?php echo $lead_type['lead_category_name']; ?></option>
                         <?php } ?>
                     </select>
-                    <label>Category</label>
+                    <label class="row justify-content-center mb-2 mt-2 ">Category</label>
                     <a href="https://www.true-elements.in/account/lead" class="btn btn-primary d-block mb-2 navigation-btn">All</a>
                     <?php foreach($lead_typess AS $lead_type) { ?>
                         <a href="<?php echo $lead_type['href']; ?>" class="btn btn-primary d-block mb-2 navigation-btn"><?php echo $lead_type['lead_category_name']; ?></a>
                     <?php } ?>
-                </div>    
+                
                 <?php $class_name = "col-md-10"; ?>
             <?php } ?>
-        </div></div>
-    </div></div>
-</div>
+       </div>
+    </div>
+
 
     
 <div class="d-sm-none">
@@ -421,46 +421,48 @@
 
   </script>
   
-  
-    <div class="content <?php echo $class_name; ?> col-xs-12 col-sm-12">
-    <form action="" method="post" enctype="multipart/form-data" id="form">     
-      <!--  <table class="hidden-xs hidden-sm" cellspacing="50" style="  border-spacing: 0px 0px;" width="100%" id="leads">-->
-      <div >
-        <table class="display" cellspacing="50" style="border-spacing: 0px 0px;" width="100%" id="leads">  
-          <tfoot class="stickyfooter">
-            <tr class=""> 
-                <td class=""></td>
-                <td class="status" id="status">Status</td>
-                <th class ="name" id="name" >Lead Name</th>
-                <th id="email">Email</th>
-                <th id="mobile">Mobile</th>
-                <td>Expected Business</td>
-                <td id="comment">Comment</td>
-                <td class="users" id="users">User</td>
-                <td id="date_added">Added On</td>
-                <td id="date_modified">Modified On</td>
-                <td></td>
-            </tr>
+  <div class="content <?php echo $class_name; ?> col-12 col-sm-12">
+  <form action="" method="post" enctype="multipart/form-data" id="form">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered" id="leads">
+        <tfoot class="stickyfooter">
+          <tr>
+            <td class=""></td>
+            <td class="status" id="status">Status</td>
+            <th class="name" id="name">Lead Name</th>
+            <th id="email">Email</th>
+            <th id="mobile">Mobile</th>
+            <td>Expected Business</td>
+            <td id="comment">Comment</td>
+            <td class="users" id="users">User</td>
+            <td id="date_added">Added On</td>
+            <td id="date_modified">Modified On</td>
+            <td></td>
+          </tr>
         </tfoot>
-          <thead class="stickyheader">
-            <tr> 
-                <td class="all"></td>
-                <th class="all">Status</th>
-                <th class="all">Lead Name</th>
-                <th class="min-desktop">Email</th>
-                <td class="min-desktop">Mobile</td>
-                <td class="min-desktop">Expected Business</td>
-                <th class="min-desktop">Last Comment</th>
-                <th class="all">User</th> 
-                <th class="min-desktop">Added On</th>
-                <th class="min-desktop">Last Updated</th>
-                <th class="min-desktop">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php if ($leads) { ?>
+  
+   <thead class="stickyheader">
+          <tr>
+            <td class="all"></td>
+            <th class="all">Status</th>
+            <th class="all">Lead Name</th>
+            <th class="d-none d-sm-table-cell">Email</th>
+            <th class="d-none d-sm-table-cell">Mobile</th>
+            <th class="d-none d-sm-table-cell">Expected Business</th>
+            <th class="d-none d-sm-table-cell">Last Comment</th>
+            <th class="all">User</th>
+            <th class="d-none d-sm-table-cell">Added On</th>
+            <th class="d-none d-sm-table-cell">Last Updated</th>
+            <th class="d-none d-sm-table-cell">Action</th>
+          </tr>
+        </thead>
+        
+        
+        <tbody>
+          <?php if ($leads) { ?>
             <?php foreach ($leads as $lead) { ?>
-            <tr>
+              <tr>
+                <tr>
                 <td style="text-align: center;">
                   <?php if ($lead['selected']) { ?>
                 <input type="checkbox" name="selected[]" id="<?php echo $lead['lead_id']; ?>_select" value="<?php echo $lead['lead_id']; ?>" checked="checked" />
@@ -497,23 +499,8 @@
                     &nbsp;<a style="background: url(https://datatables.net/examples/resources/details_open.png) no-repeat center center; cursor: pointer;" onclick="$('#form').attr('action', '<?php echo $assign_user; ?>'); $('#form').submit();" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                     <?php } ?> 
                 </td>
-                <!--td><select name="<?php echo $lead['lead_id']; ?>_assignuser" id="<?php echo $lead['lead_id']; ?>_assignuser" onclick='document.getElementById("<?php echo $lead['lead_id']; ?>_select").setAttribute("checked","checked");'>
-                        <option value=" ">Assign to</option> 
-                        <option value="54784">Prachi</option>
-                        <option value="54900">Rashmi</option>
-                        <option value="54786">Dhivni</option>
-                        <option value="54693">Sudhir</option>
-                        <option value="54814">Saikiran</option>
-                        <option value="54818">Krishna</option>
-                        <option value="54764">Puru</option>
-                    </select>
-                    &nbsp;<a style="background: url(https://datatables.net/examples/resources/details_open.png) no-repeat center center; cursor: pointer;" onclick="$('#form').attr('action', '<?php echo $assign_user; ?>'); $('#form').submit();" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
-                <td class="center">
-                        <input type="date" class="date" name="<?php echo $lead['lead_id']; ?>_remind" onclick='document.getElementById("<?php echo $lead['lead_id']; ?>_select").setAttribute("checked","checked");' style="width: 70%;" value="<?php echo $lead['remind']; ?>">
-                        
-                        &nbsp;<a style="background: url(https://datatables.net/examples/resources/details_open.png) no-repeat center center; cursor: pointer;padding: 2%;" onclick="$('#form').attr('action', '<?php echo $edit_list; ?>'); $('#form').submit();" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
-                    </td-->
-                
+               
+             
                 <?php   $date_added = strtotime($lead['date_added']);
                             $new_date_added = date('d-M',$date_added);
                             $date_modified = strtotime($lead['date_modified']);
@@ -532,19 +519,24 @@
                 <!--a class="dt-button buttons-print"  data-toggle="modal" data-target="#add-<?php echo $lead['lead_id']; ?>">AH</a-->
                 </td>
             </tr>
+              </tr>
             <?php } ?>
-            <?php } else { ?>
+          <?php } else { ?>
             <tr>
               <td class="center" colspan="8"><?php echo $text_no_results; ?></td>
             </tr>
-            <?php } ?>
-          </tbody>
+          <?php } ?>
+        </tbody>
+        
+
       </table>
     </div>
     </form>
       <!-- Mobile UI end -->
     </div>
   </div>
+  </div>
+  
    
     
     <?php foreach ($leads as $lead) { ?>
@@ -607,6 +599,7 @@
   </div>
 </div>
     <?php } ?>
+</div>
 </div>
 <!-- content/table -->
 
