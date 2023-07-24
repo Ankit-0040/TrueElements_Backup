@@ -342,7 +342,7 @@
 
 
     
-<div class="d-sm-none">
+    <div class="d-sm-none">
   <div id="show-filter">
     <i class="fa fa-funnel"></i>
   </div>
@@ -374,7 +374,7 @@
       </div>
     </div>
   </div>
-</div>
+    </div>
 
   
      
@@ -598,10 +598,10 @@
         </div>
     </div>
   </div>
-</div>
+    </div>
     <?php } ?>
-</div>
-</div>
+    </div>
+    </div>
 <!-- content/table -->
 
     <!-- Add Category popup-->
@@ -703,10 +703,10 @@
         </div>
     </div>
   </div>
-</div>
+    </div>
     <!-- Add lead popup-->
 
-<script type="text/javascript">
+    <script type="text/javascript">
     $(document).ready(function() {
         $("#btnbox").show();
     });
@@ -734,9 +734,9 @@
       $('.loading').remove();
     }
   });
-</script>
+    </script>
 
-<script type="text/javascript"><!--
+    <script type="text/javascript"><!--
     var category = '<?php echo $category; ?>';
     url = 'index.php?route=account/lead';
     if(category > 0) {
@@ -753,9 +753,9 @@
             location = url;
         });
     });
-</script>
+    </script>
 
-<script type="text/javascript"><!--
+    <script type="text/javascript"><!--
     $(document).ready(function() { 
         $('#id-date_added').datepicker({dateFormat: 'd-M'}); 
         $('#id-date_modified').datepicker({dateFormat: 'd-M'}); 
@@ -773,8 +773,8 @@
         }
     });
 
-</script>
-<script type="text/javascript">
+    </script>
+    <script type="text/javascript">
     $(function() {
 
       $("#addleadModalForm").validate({
@@ -841,10 +841,10 @@
       });
     });
 
-</script>
+    </script>
 
 
-<script type="text/javascript"><!--
+    <script type="text/javascript"><!--
  $(document).ready(function() { 
       $('#id-date_added').datepicker({dateFormat: 'd-M'}); 
       $('#id-date_modified').datepicker({dateFormat: 'd-M'}); 
