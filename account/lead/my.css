@@ -1,0 +1,500 @@
+
+
+/*body{
+    background:#eee;
+}*/
+.form-check-label {
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    padding: 4px 12px;
+}
+
+.form-check-input:checked + .form-check-label {
+    background-color: #f49a25;
+    color: #fff;
+}
+
+.form-check-input:checked + .form-check-label::before {
+    content: "Active";
+    padding-right: 10px;
+}
+
+.form-check-label::before {
+    content: "All";
+    padding-left: 10px;
+}
+.fa {
+            font-size: 15px !important;
+            color: #fff;
+        }
+
+@media (max-width: 575px) {
+    .leadbtn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .activ {
+        margin-left: -11px;
+    }
+
+    #stick {
+        margin-bottom: 30px;
+    }
+}
+
+.btn-dang {
+    background-color: #ee2500 !important;
+    color: #fff;
+}
+
+#myonoffswitch {
+    display: none;
+}
+
+.modal-body {
+    margin-right: 70px;
+    margin-left: 0px;
+}
+
+
+/*in file css*/
+
+    .p-0 {
+        padding: 0 !important;
+    }
+    .my-3 {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .stickyheader {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .padding-0{
+        padding: 0;
+    }
+    .table-striped tbody td a:nth-child(3) {
+        background-color: #228B22;
+    }
+    
+    
+    .btn:hover, .btn:focus {
+        background-color: #f49a25;
+        border-color: #f49a25;
+        color:#fff;
+    } 
+      
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      color: white !important;
+      border: none;
+      background-color: #585858;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #585858), color-stop(100%, #111));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #585858 0%, #111 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -moz-linear-gradient(top, #585858 0%, #111 100%);
+      /* FF3.6+ */
+      background: -ms-linear-gradient(top, #585858 0%, #111 100%);
+      /* IE10+ */
+      background: -o-linear-gradient(top, #585858 0%, #111 100%);
+      /* Opera 11.10+ */
+      background: linear-gradient(to bottom, #585858 0%, #111 100%);
+      /* W3C */
+    }
+    
+    table.dataTable tbody th, table.dataTable tbody td {
+    
+        border: 1px solid #ddd;
+    
+    }
+    
+    .dataTables_wrapper .dataTables_length {
+        float: right !important;
+        margin-bottom: 8px !important;
+    
+    }
+    .dataTables_wrapper .dataTables_filter {
+        float: left !important;
+        text-align: left !important;
+    }
+    tfoot {
+        display: table-header-group !important;
+    }
+
+    .ui-state-default input{
+        width: 100% !important;
+
+    }
+     
+    .hidden-xs, .hidden-sm{
+        display: inline-table !important;
+    }
+    
+    .hidden{
+        display:none;
+    }
+    
+    .modal-content{
+        margin-top: 32%;
+    }
+    
+    .login-heading {
+        font-size: 24px;
+    }
+    
+    #header #cart {
+        display: none !important;
+    }
+    
+    .form-control {
+        background: #fff;
+        border-radius: 5px;
+    }
+    
+    @media(min-width: 780px) {
+        .form-control {
+              width: 77%;
+        } 
+        .dataTables_wrapper .dataTables_filter input {
+            margin-left: 0.5em;
+            height: 26px;
+            width: 370px;
+        }
+    }
+    
+    .pull-right {
+       margin: 1%;
+    }
+    
+    input, button, select, textarea {
+        color:#000 !important;   
+    }
+    
+    #loginModal{
+        background: #6d6d6d;    
+        
+    }
+    
+         
+    @media (max-width: 450px) {
+         
+         table.dataTable.collapsed tbody tr:nth-child(4n+2){
+                  background-color: #F0F0F0;
+           } 
+
+          .sticky {
+           position: fixed;
+           top: 0;
+           width: 100%;
+           z-index: 100;
+           background-color: #fff;
+           padding: 15px 6px 12px 12px;
+           border-bottom: 1px solid rgb(240, 240, 240);
+           left: 0px;
+           }
+        }
+        
+        #show-filter {
+            display: block;
+            position: fixed;
+            cursor: pointer;
+            z-index: 9999;
+        }
+        
+        
+        
+        #show-filter i:first-child {
+            position: fixed;
+            top: 30%;
+            left: 0;
+            font-size: 2rem;
+            width: 5rem;
+            height: 5rem;
+            line-height: 5rem;
+            cursor: pointer;
+            text-align: center;
+            z-index: 120;
+            border-top-right-radius: 3.5rem;
+            border-bottom-right-radius: 3.5rem;
+            -webkit-box-shadow: 0 0 0.5rem rgba(0,0,0,.17);
+            box-shadow: 0 0 0.5rem rgba(0,0,0,.17);
+            background-color: #000;
+        }
+    
+        #mobile-filter{
+            position: fixed;
+            z-index: 100;
+            top:31%;
+            left: 0%;
+            background: rgb(255, 255, 255);
+            border-radius: 4px;
+            box-shadow: 0px 0px 20px;
+            padding: 25px 25px 0px;
+        }
+        
+        #mobile-filter checkbox{
+            display: none;
+        }
+    
+        @media only screen and (max-width: 768px){
+            input[type="checkbox"], input[type="radio"] {
+                margin: 4px 0 0;
+                margin-top: 1px\9;
+                line-height: normal;
+               display: none;
+            }
+        }
+        
+        @media only screen and (max-width: 768px){
+            table.dataTable thead th div.DataTables_sort_wrapper span {
+                position: absolute;
+                top: 50%;
+                margin-top: -9px;
+                right: -1px;
+               
+            }
+        }
+        @media screen and (min-width: 300px) and (max-width: 500px){
+            #leads thead th, #leads tbody td{
+                padding: 10px;
+            } 
+            tfoot.stickyfooter select{
+                width: 60px;
+            }
+        }
+        
+        .modal-body{
+            margin-right: 70px;
+            margin-left: 0px;
+        } 
+            
+        table.dataTable thead th div.DataTables_sort_wrapper span {
+            position: absolute;
+            top: 50%;
+            margin-top: -9px;
+        }
+
+        /*Backup css */
+        .p-0 {
+            padding: 0 !important;
+        }
+        .my-3 {
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .stickyheader {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .padding-0{
+            padding: 0;
+        }
+        .table-striped tbody td a:nth-child(3) {
+            background-color: #228B22;
+        }
+        
+        
+        .btn:hover, .btn:focus {
+            background-color: #f49a25;
+            border-color: #f49a25;
+            color:#fff;
+        } 
+          
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+          color: white !important;
+          border: none;
+          background-color: #585858;
+          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #585858), color-stop(100%, #111));
+          /* Chrome,Safari4+ */
+          background: -webkit-linear-gradient(top, #585858 0%, #111 100%);
+          /* Chrome10+,Safari5.1+ */
+          background: -moz-linear-gradient(top, #585858 0%, #111 100%);
+          /* FF3.6+ */
+          background: -ms-linear-gradient(top, #585858 0%, #111 100%);
+          /* IE10+ */
+          background: -o-linear-gradient(top, #585858 0%, #111 100%);
+          /* Opera 11.10+ */
+          background: linear-gradient(to bottom, #585858 0%, #111 100%);
+          /* W3C */
+        }
+        
+        table.dataTable tbody th, table.dataTable tbody td {
+        
+            border: 1px solid #ddd;
+        
+        }
+        
+        .dataTables_wrapper .dataTables_length {
+            float: right !important;
+            margin-bottom: 8px !important;
+        
+        }
+        .dataTables_wrapper .dataTables_filter {
+            float: left !important;
+            text-align: left !important;
+        }
+        tfoot {
+            display: table-header-group !important;
+        }
+    
+        .ui-state-default input{
+            width: 100% !important;
+    
+        }
+         
+        .hidden-xs, .hidden-sm{
+            display: inline-table !important;
+        }
+        
+        .hidden{
+            display:none;
+        }
+        
+        .modal-content{
+            margin-top: 32%;
+        }
+        
+        .login-heading {
+            font-size: 24px;
+        }
+        
+        #header #cart {
+            display: none !important;
+        }
+        
+        .form-control {
+            background: #fff;
+            border-radius: 5px;
+        }
+        
+        @media(min-width: 780px) {
+            .form-control {
+                  width: 77%;
+            } 
+            .dataTables_wrapper .dataTables_filter input {
+                margin-left: 0.5em;
+                height: 26px;
+                width: 370px;
+            }
+        }
+        
+        .pull-right {
+           margin: 1%;
+        }
+        
+        input, button, select, textarea {
+            color:#000 !important;   
+        }
+        
+        #loginModal{
+            background: #6d6d6d;    
+            
+        }
+        
+             
+        @media (max-width: 450px) {
+             
+             table.dataTable.collapsed tbody tr:nth-child(4n+2){
+                      background-color: #F0F0F0;
+               } 
+    
+              .sticky {
+               position: fixed;
+               top: 0;
+               width: 100%;
+               z-index: 100;
+               background-color: #fff;
+               padding: 15px 6px 12px 12px;
+               border-bottom: 1px solid rgb(240, 240, 240);
+               left: 0px;
+               }
+            }
+            
+            #show-filter {
+                display: block;
+                position: fixed;
+                cursor: pointer;
+                z-index: 9999;
+            }
+            
+            
+            
+            #show-filter i:first-child {
+                position: fixed;
+                top: 30%;
+                left: 0;
+                font-size: 2rem;
+                width: 5rem;
+                height: 5rem;
+                line-height: 5rem;
+                cursor: pointer;
+                text-align: center;
+                z-index: 120;
+                border-top-right-radius: 3.5rem;
+                border-bottom-right-radius: 3.5rem;
+                -webkit-box-shadow: 0 0 0.5rem rgba(0,0,0,.17);
+                box-shadow: 0 0 0.5rem rgba(0,0,0,.17);
+                background-color: #000;
+            }
+        
+            #mobile-filter{
+                position: fixed;
+                z-index: 100;
+                top:31%;
+                left: 0%;
+                background: rgb(255, 255, 255);
+                border-radius: 4px;
+                box-shadow: 0px 0px 20px;
+                padding: 25px 25px 0px;
+            }
+            
+            #mobile-filter checkbox{
+                display: none;
+            }
+        
+            @media only screen and (max-width: 768px){
+                input[type="checkbox"], input[type="radio"] {
+                    margin: 4px 0 0;
+                    margin-top: 1px\9;
+                    line-height: normal;
+                   display: none;
+                }
+            }
+            
+            @media only screen and (max-width: 768px){
+                table.dataTable thead th div.DataTables_sort_wrapper span {
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -9px;
+                    right: -1px;
+                   
+                }
+            }
+            @media screen and (min-width: 300px) and (max-width: 500px){
+                #leads thead th, #leads tbody td{
+                    padding: 10px;
+                } 
+                tfoot.stickyfooter select{
+                    width: 60px;
+                }
+            }
+            
+            .modal-body{
+                margin-right: 70px;
+                margin-left: 0px;
+            } 
+                
+            table.dataTable thead th div.DataTables_sort_wrapper span {
+                position: absolute;
+                top: 50%;
+                margin-top: -9px;
+            }
+    
