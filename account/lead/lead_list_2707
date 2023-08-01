@@ -1,0 +1,668 @@
+<?php echo $new_header; ?>
+<link href="catalog/view/theme/default/stylesheet/new/common.css" rel="stylesheet" media="screen" />
+<link href="catalog/view/theme/default/stylesheet/new/leave_list.css" rel="stylesheet" media="screen" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"/>
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css"/>
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css"/>
+<link rel="stylesheet" href="https://cdn.datatables.net/select/1.6.2/css/select.dataTables.min.css"/>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.6.2/js/dataTables.select.min.js"></script>
+<style>
+    
+</style>
+<div class="col-xxl-12 col-xl-12 col-12 d-none">
+    <div class="page_header p-1 bg-light text-center"><p class="mb-1 fs-6 fw-bold">Leave Tracker</p></div>
+</div>
+
+<div class="container-fluid">
+    <div class="row mb-4 justify-content-lg-center mx-0">
+        <?php if ($error_warning) { ?>
+            <div class="warning col-md-12"><?php echo $error_warning; ?></div>
+        <?php } ?>
+        <?php if ($success) { ?>
+            <div class="success col-md-12"><?php echo $success; ?></div>
+        <?php } ?> 
+     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="row mt-1 mb-4">
+            <div class="leav_bal p-3 shadow rounded-4 my-3 col-xxl-2 col-xl-12 col-lg-12 col-md-4 col-sm-12 col-12">
+               <img class="img-fluid" src="image/sellerapp_category/calendar-black.png" width="36px"/>
+                <h5 class="text-dark-blue text-dark fw-bold my-2">Leave Balance <span class="pink pull-right"><?php echo $leave_balance; ?></h5>
+            </div> 
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4 px-lg-1 px-0 card_content">
+                <div class="card text-center my-1 border-0">
+                  <div class="card-body p-lg-2 p-0">
+                   <div class="leave_icon mx-2 rounded-4">
+                        <div class="icon_div rounded-4 my-2 m-auto" style="background:#dbf0fd;">
+                            <img class="img-fluid" src="image/sellerapp_category/calendar.png" width="36px"/>
+                        </div>
+                        <p class="text-secondary mt-lg-2 mt-2"><a class="lh-base text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#apply_leave">Apply leave</a></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4 px-lg-1 px-0 card_content">
+                <div class="card text-center my-1 border-0">
+                    <div class="card-body p-lg-2 p-0">
+                        <div class="leave_icon mx-2 rounded-4">
+                            <div class="icon_div rounded-4 my-2 m-auto" style="background:#FFE8F3;">
+                                <img class="img-fluid" src="image/sellerapp_category/clock.png" width="36px"/>
+                            </div>
+                            <p class="text-secondary mt-lg-2 mt-2"><a class="lh-base text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#apply_half_day">Apply half day</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4 px-lg-1 px-0 card_content">
+                <div class="card text-center my-1 border-0">
+                  <div class="card-body p-lg-2 p-0">
+                    <div class="leave_icon mx-2 rounded-4">
+                        <div class="icon_div rounded-4 my-2 m-auto" style="background:#CEFFCE;">
+                          <img class="img-fluid" src="image/sellerapp_category/work-from-home.png" width="36px"/>
+                        </div>
+                        <p class="text-secondary mt-lg-2 mt-2"><a class="lh-base text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#apply_wfh">Apply WFH</a></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4 px-lg-1 px-0 card_content">
+                <div class="card text-center my-1 border-0">
+                  <div class="card-body p-lg-2 p-0">
+                    <div class="leave_icon mx-2 rounded-4">
+                        <div class="icon_div rounded-4 my-2 m-auto" style="background:#FFEED1;">
+                          <img class="img-fluid" src="image/sellerapp_category/dismissal.png" width="36px"/>
+                        </div>
+                        <p class="text-secondary mt-lg-2 mt-2"><a class="lh-base text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#onleave">People on leave</a></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4 px-lg-1 px-0 card_content">
+                <div class="card text-center my-1 border-0">
+                  <div class="card-body p-lg-2 p-0">
+                    <div class="leave_icon mx-2 rounded-4">
+                        <div class="icon_div rounded-4 my-2 m-auto" style="background:#DCE5FF;">
+                          <img class="img-fluid" src="image/sellerapp_category/holiday.png" width="36px"/>
+                        </div>
+                        <p class="text-secondary mt-lg-2 mt-2"><a class="lh-base text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#holiday">Holiday Calendar</a></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php if($is_manager) { ?>
+                <div id="sticky">   
+                    <div class="footleft">
+                        <?php if($employee_id) { ?>
+                            <div class="footnav col-md-2 col-xs-12 col-sm-12 hidden-xs hidden-sm" style="margin-top: 50px;">
+                                <select style="height: 37px;width: 100%;font-size: 17px;margin-bottom: 7%;" class="sel"  onchange="location = this.value;">
+                                    <option value="/account/leave" selected style="color:#000000;font-size:15px;"><?php echo $user; ?></option>
+                                    <?php foreach($my_employees AS $my_employee) { ?>
+                                        <?php if($my_employee['employee_id'] == $employee_id) { ?>
+                                            <option value="<?php echo $my_employee['href']; ?>" selected><?php echo $my_employee['employee_name']; ?></option>
+                                        <?php } else { ?> 
+                                            <option value="<?php echo $my_employee['href']; ?>"><?php echo $my_employee['employee_name']; ?></option>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <?php $class_name = "col-md-10"; ?>
+                        <?php } else { ?>
+                            <div class="footnav col-md-2 col-xs-12 col-sm-12 hidden-xs hidden-sm" style="margin-top: 50px;width:11%;">
+                                <select class="sel" style="font-size: 17px;margin-bottom: 7%;height: 37px;width: 100%;"  onchange="location = this.value;">
+                                    <option value="/account/leave" selected style="color:#000000;font-size:15px;"><?php echo $user; ?></option>
+                                    <?php foreach($my_employees AS $my_employee) { ?> 
+                                        <option value="<?php echo $my_employee['href']; ?>"><?php echo $my_employee['employee_name']; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>    
+                            <?php $class_name = "col-md-10"; ?>
+                        <?php } ?>
+                    </div>
+                </div>
+            <?php } ?>
+            <form action="" method="post" enctype="multipart/form-data" id="form">
+        <table class="border display table table-striped dt-responsive nowrap table-bordered" cellspacing="50" style="border-spacing: 0px 0px;" width="100%" id="leads"> 
+            <tfoot class="stickyfooter">
+                <tr class=""> 
+                    <td class=""></td>
+                    <td class="status" id="status">Status</td>
+                    <th class ="name" id="name" >User Name</th> 
+                    <td id="from_date">From Date</td> 
+                    <td id="to_date">To Date</td>
+                    <td>No. Days</td>
+                    <td id="date_added">Applied Date</td>
+                    <?php if ($is_manager) { ?>
+                        <td>Action</td>
+                    <?php } ?>
+                    <td class="min-desktop">Mark as Cancelled </td>
+                    <td id="date_modified">Approved date</td>
+                    <!--<td></td>-->
+                </tr>
+            </tfoot>
+            <thead class="stickyheader">
+                <tr> 
+                    <td class="all"></td>
+                    <th class="all">Status</th>
+                    <th class="all">User Name</th> 
+                    <th class="min-desktop">From Date</th>
+                    <th class="min-desktop">To Date</th>
+                    <td>No. Days</td>
+                    <th class="min-desktop">Applied Date</th>
+                    <?php if ($is_manager) { ?>
+                        <th class="min-desktop">Action</th>
+                    <?php } ?>
+                    <th class="min-desktop">Mark as Cancelled  </th>
+                    <th class="min-desktop">Approved date</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            <?php if ($leaves) { ?>
+                <?php foreach ($leaves as $leave) { ?>
+                    <tr>
+                        <td style="text-align: center;">
+                            <?php if ($leave['selected']) { ?>
+                                <input type="checkbox" name="selected[]" id="<?php echo $leave['leave_id']; ?>_select" value="<?php echo $leave['leave_id']; ?>" checked="checked" />
+                            <?php } else { ?>
+                                <input type="checkbox" name="selected[]" id="<?php echo $leave['leave_id']; ?>_select" value="<?php echo $leave['leave_id']; ?>" />
+                            <?php } ?>
+                        </td>
+                        <td class="center"><?php echo $leave['status']; ?></td> 
+                        <td class="center"><?php echo $leave['user_name']; ?></td>  
+        
+                        <?php $from_date = strtotime($leave['from_date']);
+                            $new_from_date = date('d-M',$from_date);
+                            $to_date = strtotime($leave['to_date']);
+                            $new_to_date = date('d-M',$to_date);
+                            
+                            $date_added = strtotime($leave['date_added']);
+                            $new_date_added = date('d-M',$date_added);
+                            if($leave['date_approved'] != '-') {
+                                $date_approved = strtotime($leave['date_approved']);
+                            
+                                $new_date_approved = date('d-M',$date_approved);
+                            } else {
+                                $new_date_approved = '-';
+                            }
+                            
+                        ?>
+                        <td class="center" data-sort="<?php echo $from_date; ?>"> <?php echo $new_from_date; ?></td>
+                        <td class="center" data-sort="<?php echo $to_date; ?>"> <?php echo $new_to_date; ?></td>
+                        <td class="center" data-sort="<?php echo $to_date; ?>"> <?php echo $leave['no_working_days']; ?></td>
+                        <td class="center" data-sort="<?php echo $date_added; ?>"> <?php echo $new_date_added; ?></td>
+                        <?php if ($is_manager) { ?>
+                            <?php if ($leave['status_id'] == 1 OR $leave['status_id'] == 5) { ?>
+                                <td><select name="<?php echo $leave['leave_id']; ?>_status" id="<?php echo $leave['leave_id']; ?>_status" onclick='document.getElementById("<?php echo $leave['leave_id']; ?>_select").setAttribute("checked","checked");'>
+                                    
+                                <?php if ($leave['status_id'] != 5) { ?>    <option value="1">pending</option>
+                                    <option value="2">Approved</option>
+                                    <option value="3">Not Approved</option>
+                            <?php } else { ?>
+                                <option value="6">WFH Approved</option>
+                                <option value="3">Not Approved</option>
+                            <?php } ?>        
+                            </select>
+                            &nbsp;<a style="background: url(https://datatables.net/examples/resources/details_open.png) no-repeat center center; cursor: pointer;" onclick="$('#form').attr('action', '<?php echo $status; ?>'); $('#form').submit();" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+                            <?php } else { ?>
+                                <td>-</td>
+                            <?php } ?>
+                        <?php } ?> 
+                        <?php if ($leave['can_cancelled'] == 1 && $leave['status_id'] != 4) { ?>
+                            <td><select name="<?php echo $leave['leave_id']; ?>_estatus" id="<?php echo $leave['leave_id']; ?>_estatus" onclick='document.getElementById("<?php echo $leave['leave_id']; ?>_select").setAttribute("checked","checked");'>
+                                    <option value="4">Cancelled</option>
+                                </select>
+                                &nbsp;<a style="background: url(https://datatables.net/examples/resources/details_open.png) no-repeat center center; cursor: pointer;" onclick="$('#form').attr('action', '<?php echo $estatus; ?>'); $('#form').submit();" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+                        <?php } else { ?>
+                            <td>-</td>
+                        <?php } ?>
+                        <td class="center" data-sort="<?php echo $date_approved; ?>"> <?php echo $new_date_approved ? $new_date_approved:""; ?></td> 
+                    </tr>
+                    <?php } ?>
+                    <?php } else { ?>
+                        <tr>
+                            <td class="center"></td>
+                            <td class="center">No data</td>
+                            <td class="center">No data</td>
+                            <td class="center">No data</td>
+                            <td class="center">No data</td>
+                            <td class="center">No data</td> 
+                            <?php if ($is_manager) { ?>
+                                <th class="min-desktop">Action</th>
+                            <?php } ?>
+                            <td class="center">No data</td> 
+                            <td class="center"></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Apply leave-->
+<div id="apply_leave" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content addmodal">
+          <div class="modal-header">
+            <span class="modal-title"><p class="login-heading"><strong>Apply Leave (<?php echo $user; ?>'s <span class="pink">Leave Balance</span> <?php echo $leave_balance; ?>)</strong></p></span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="login-container">
+              <div class="row">
+                <div class="col-md-12 login-form-1">
+                  <form action="<?php echo $base; ?>index.php?route=account/leave/add" method="post" enctype="multipart/form-data" id="addleads_reviewModalForm">
+                    
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12"> 
+                        <input type="text" name="from" placeholder="Enter from date" class="call_date form-control mb-1" autocomplete="off">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12"> 
+                        <input type="text" name="to" placeholder="Enter to date" class="call_date form-control mb-1" autocomplete="off">
+                    </div>
+                    <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                    <div class="form-group">
+                      <input type="submit" class="button btn btn-primary pull-right" value="Apply" />
+                    </div>  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--Apply half day-->
+<div id="apply_half_day" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content addmodal">
+          <div class="modal-header">
+           <span class="modal-title"><p class="login-heading"><strong>Apply Half day (<?php echo $user; ?>'s <span class="pink">Leave Balance</span> <?php echo $leave_balance; ?>)</strong></p></span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="login-container">
+              <div class="row">
+                <div class="col-md-12 login-form-1">
+                  <form action="<?php echo $base; ?>index.php?route=account/leave/half_day" method="post" enctype="multipart/form-data" id="addleads_reviewModalForm">
+                    
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12"> 
+                        <input type="text" class="form-control mb-2" name="from" placeholder="Enter date" class="call_date" autocomplete="off">
+                    </div>
+                    <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                    <div class="form-group">
+                      <input type="submit" class="button btn btn-primary pull-left" value="Apply" />
+                    </div>  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Pending Count popup-->
+<!--apply wfh-->
+ <div id="apply_wfh" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content addmodal">
+          <div class="modal-header">
+            <span class="modal-title"><p class="login-heading"><strong>Apply WFH(<?php echo $user; ?>'s <span class="pink">Leave Balance</span> <?php echo $leave_balance; ?>)</strong></p></span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="login-container">
+              <div class="row">
+                <div class="col-md-12 login-form-1">
+                  <form action="<?php echo $base; ?>index.php?route=account/leave/addWfh" method="post" enctype="multipart/form-data" id="addleads_reviewModalForm">
+                    
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12"> 
+                        <input type="text" name="from" placeholder="Enter From date" class="call_date form-control mb-1" autocomplete="off">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12"> 
+                        <input type="text" name="to" placeholder="Enter to date" class="call_date form-control mb-1" autocomplete="off">
+                    </div>
+                    <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                    <div class="form-group">
+                      <input type="submit" class="button btn btn-primary pull-right" value="Apply" />
+                    </div>  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<div id="onleave" class="modal fade" role="dialog">
+        <style>
+        @media (min-width: 1200px) {
+            .container {
+                width: 1170px;
+            }
+        }
+          
+        .leftbtn {
+            padding: 1px 1px;
+        }
+        #sticky {
+            position: sticky;
+            top: 20px;
+        }
+        </style>
+        <div class="modal-dialog">
+        <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <center><h5>People on leave today</h5></center>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="display table-striped table-bordered" cellspacing="50" style="border-spacing: 0px 0px;" width="100%" id="taskconut">  
+                        <tfoot>
+                            <tr class="d-none d-lg-block"> 
+                                <th class="user_name">User</th>
+                                <td style="width: 20%;">From</td>
+                                <td style="width: 20%;">To</td>
+                                <td style="width: 20%;">No. Days</td>
+                                <td style="width: 20%;">Status</td>
+                            </tr>
+                        </tfoot>      
+                        <thead>
+                            <tr>
+                                <th>User</th> 
+                                <td>From</td>
+                                <td>To</td>
+                                <td>No. Days</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                            <?php if ($peoples_on_leave) { ?>
+                                <?php foreach ($peoples_on_leave as $people) { ?>
+                                <tr>
+                                    <td><?php echo $people['user_name']; ?></td>
+                                    <td><?php echo $people['from_date']; ?></td>
+                                    <td><?php echo $people['to_date']; ?></td>
+                                    <td><?php echo $people['no_working_days']; ?></td>
+                                    <td><?php echo $people['status']; ?></td>
+                                </tr>
+                                <?php } ?>
+                            <?php } else { ?>
+                                <tr>
+                                    <td class="center">No Data</td>
+                                    <td class="center">No Data</td>
+                                    <td class="center">No Data</td>
+                                    <td class="center">No Data</td>
+                                    <td class="center">No Data</td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--holiday calendar-->
+    <div id="holiday" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content addmodal">
+          <div class="modal-header">
+            <span class="modal-title"><p class="login-heading mb-0"><strong>Holiday List</span> <?php echo $leave_balance; ?>)</strong></p></span>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body me-0">
+            <div class="table-responsive">
+               <table class="border display table table-striped dt-responsive nowrap table-bordered" cellspacing="50" style="border-spacing: 0px 0px;" width="100%" id="holidays">   
+                        <thead>
+                            <tr>
+                                <td>Festival / Occasion</td>
+                                <td>Date</th>
+                                <td>Day</td>
+                                <td>Flexible</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($holiday_calender AS $holiday) { ?>
+                                <tr>
+                                    <td><?php echo $holiday['festival']; ?></td>
+                                    <td><?php echo $holiday['holiday_date']; ?></td>
+                                    <td><?php echo $holiday['holiday_day']; ?></td>
+                                    <td><?php echo $holiday['flexible']; ?></td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                 </table>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<script>
+   $(document).ready(function () {
+     $('#leads tfoot th').each( function () {
+        var title = $('#example thead th').eq( $(this).index()).text();
+        $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+    });
+    var table = $('#leads').DataTable({
+        responsive: true,
+        scrollCollapse: true, 
+        autoWidth: true, 
+        dom: 'Bfrtip',
+        paging: true,
+        pageLength: 10,
+        lengthChange: true,
+        buttons: [
+            'pageLength','csv', 'excel',
+            
+        ],
+        /*language: {
+                    searchPlaceholder: "Universal Search"
+        },*/
+        lengthMenu: [
+            [ 25, 50, 100, 200, -1 ],
+            [ '25', '50','100','200', 'Show all' ]
+        ],  
+        select: true,
+        initComplete: function () {
+                    // Apply the search
+                    this.api().columns().every( function () {
+                        var that = this;
+                        $( 'input', this.footer() ).on('keyup change clear', function () {
+                            if ( that.search() !== this.value ) {
+                                that.search( this.value ).draw();
+                            }
+                        });
+                    });
+                }
+        
+    });
+    $("#status").each( function () {
+                var select = $('<select class="form-select"><option value=""></option></select>')
+            .appendTo( $(this).empty() ) .on( 'change', function () {
+                    var val = $(this).val();
+                    table.column(1).search( val ? '^'+$(this).val()+'$' : val, true, false ).draw();
+                });
+                table.column(1).data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                });
+            });
+
+} );
+</script>
+<script type="text/javascript">
+        $('.call_date').datepicker({ 
+            dateFormat: 'yy-mm-dd',
+            //minDate: 0, 
+        });
+        
+    </script>
+    
+    <script type="text/javascript">
+        $(function () { 
+            $('#myDropdown2').change( function() {
+                location.href = $(this).val();
+            });
+        });
+
+        $(document).ready(function(){
+            $("#mobile-filter").css({'display': 'none'});
+                $("#show-filter").click(function(){ 
+                $("#mobile-filter").slideToggle("slow");
+            });
+
+            $("#myInput2, #myInput3").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#leads tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#btnbox").show();
+        });
+    </script>
+    <script type="text/javascript"><!--
+        var employee_id = '<?php echo $employee_id; ?>';
+        url = '<?php echo $base; ?>index.php?route=account/leave/myleaves';
+        if(employee_id > 0) {
+            url += '&employee_id=' + employee_id;
+        } 
+    </script>
+
+    <script type="text/javascript"><!--
+        $(document).ready(function() { 
+            $('#id-date_added').datepicker({dateFormat: 'd-M'}); 
+            $('#id-date_modified').datepicker({dateFormat: 'd-M'}); 
+            $('.date').datepicker({dateFormat: 'd-M'});
+        }); 
+    </script>
+    
+    <script type="text/javascript"><!--
+        $(document).ready(function() { 
+            $('#id-date_added').datepicker({dateFormat: 'd-M'}); 
+            $('#id-date_modified').datepicker({dateFormat: 'd-M'}); 
+            $('.date').datepicker({dateFormat: 'd-M'});
+        });
+    </script>
+    <script type="text/javascript"><!-- 
+ 
+
+        $(document).ready(function() {
+            var table1 = $('#holidays').DataTable( {
+                scrollCollapse: true,
+                autoWidth:         true, 
+                dom: 'lBfrtip',
+                buttons: [  ],
+                language: {
+                    searchPlaceholder: "Universal Search"
+                },
+                lengthMenu: [
+                    [  25, 50, 100, 200, -1 ],
+                    [ '25', '50','100','200', 'Show all' ]
+                ], 
+                'columnDefs': [         // see https://datatables.net/reference/option/columns.searchable
+                    { 'searchable'    : true, 'sortable'    : true, 'targets'       : [0,0] }, 
+                ],
+                order: [[ 1 , "asc" ]],
+                "pagingType":"full_numbers",
+                responsive: {
+                    details: {
+                        display: $.fn.dataTable.Responsive.display.childRowImmediate,
+                        type: 'none',
+                        target: ''
+                    },
+                },
+            
+                initComplete: function () {
+                    // Apply the search
+                    this.api().columns().every( function () {
+                        var that = this;
+                        $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                            if ( that.search() !== this.value ) {
+                                that.search( this.value ).draw();
+                            }
+                        });
+                    });
+                }
+            });
+        });
+    
+    </script>
+    <script type="text/javascript"><!-- 
+
+        $('#taskconut tfoot th').each( function () {
+            var title = $(this).text();
+            var id = $(this).attr("id");
+            $(this).html( '<input type="text" id="id-'+id+'" placeholder="Search '+title+'" />' );
+        });
+
+        $(document).ready(function() {
+            var table1 = $('#taskconut').DataTable( {
+                scrollCollapse: true,
+                autoWidth:         true, 
+                dom: 'lBfrtip',
+                buttons: [  ],
+                language: {
+                    searchPlaceholder: "Universal Search"
+                },
+                lengthMenu: [
+                    [  25, 50, 100, 200, -1 ],
+                    [ '25', '50','100','200', 'Show all' ]
+                ], 
+                'columnDefs': [         // see https://datatables.net/reference/option/columns.searchable
+                    { 'searchable'    : true, 'sortable'    : true, 'targets'       : [0,0] }, 
+                ],
+                order: [[ 0 , "desc" ]],
+                "pagingType":"full_numbers",
+                responsive: {
+                    details: {
+                        display: $.fn.dataTable.Responsive.display.childRowImmediate,
+                        type: 'none',
+                        target: ''
+                    },
+                },
+            
+                initComplete: function () {
+                    // Apply the search
+                    this.api().columns().every( function () {
+                        var that = this;
+                        $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                            if ( that.search() !== this.value ) {
+                                that.search( this.value ).draw();
+                            }
+                        });
+                    });
+                }
+            });
+            
+            $(".user_name").each( function () {
+                var select = $('<select><option value=""></option></select>').appendTo( $(this).empty() ) .on( 'change', function () {
+                    var val = $(this).val();
+                        table1.column(0).search( val ? '^'+$(this).val()+'$' : val, true, false ).draw();
+                    });
+                        table1.column(0).data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                    });
+            });
+        
+        });
+    
+    </script>
+    <?php echo $quick_footer; ?>
+
